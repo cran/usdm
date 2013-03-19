@@ -26,7 +26,7 @@ Slots for VIF object
 }
 
 
-\author{Babak Naimi \email{naimi@r-gis.net}
+\author{Babak Naimi \email{naimi.b@gmail.com}
 
 \url{http://r-gis.net}
 }

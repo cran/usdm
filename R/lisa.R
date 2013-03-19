@@ -1,6 +1,6 @@
 # Author: Babak Naimi, naimi.b@gmail.com
-# Date :  Oct. 2012
-# Version 1.1
+# Date :  March 2013
+# Version 1.2
 # Licence GPL v3
 
 
@@ -306,32 +306,32 @@ setMethod('lisa', signature(x='Raster',y='missing'),
                 out <- raster(x[[1]])
                 if (statistic == "K1" | statistic == "k1") {
                   for (i in 1:nlayers(x)) out <- addLayer(out,.localK(x[[i]],d1=d1,d2=d2))
-                  layerNames(out) <- paste(statistic," _statistic_for_",layerNames(x),sep="")
+                  names(out) <- paste(statistic," _statistic_for_",names(x),sep="")
                   out <- brick(out)
                 }
                 if (statistic == "I" | statistic == "i") { 
                   for (i in 1:nlayers(x)) out <- addLayer(out,.localMoran(x[[i]],d1=d1,d2=d2))
-                  layerNames(out) <- paste(statistic," _statistic_for_",layerNames(x),sep="")
+                  names(out) <- paste(statistic," _statistic_for_",names(x),sep="")
                   out <- brick(out)
                 }
                 if (statistic == "G" | statistic == "g") {
                   for (i in 1:nlayers(x)) out <- addLayer(out,.localG(x[[i]],d1=d1,d2=d2))
-                  layerNames(out) <- paste(statistic," _statistic_for_",layerNames(x),sep="")
+                  names(out) <- paste(statistic," _statistic_for_",names(x),sep="")
                   out <- brick(out)
                 }
                 if (statistic == "G*" | statistic == "g*") {
                   for (i in 1:nlayers(x)) out <- addLayer(out,.localG2(x[[i]],d1=d1,d2=d2))
-                  layerNames(out) <- paste(statistic," _statistic_for_",layerNames(x),sep="")
+                  names(out) <- paste(statistic," _statistic_for_",names(x),sep="")
                   out <- brick(out)
                 }
                 if (statistic == "C" | statistic == "c") {
                   for (i in 1:nlayers(x)) out <- addLayer(out,.localGeary(x[[i]],d1=d1,d2=d2))
-                  layerNames(out) <- paste(statistic," _statistic_for_",layerNames(x),sep="")
+                  names(out) <- paste(statistic," _statistic_for_",names(x),sep="")
                   out <- brick(out)
                 }
               } else {
                 out <- matrix(nrow=length(cell),ncol=nlayers(x))
-                colnames(out) <- layerNames(x)
+                colnames(out) <- names(x)
                 rownames(out) <- cell
                 if (statistic == "K1" | statistic == "k1") for (i in 1:nlayers(x)) out[,i] <- .localK(x[[i]],d1=d1,d2=d2,cell=cell)
                 if (statistic == "I" | statistic == "i") for (i in 1:nlayers(x)) out[,i] <- .localMoran(x[[i]],d1=d1,d2=d2,cell=cell)
@@ -360,7 +360,7 @@ setMethod('lisa', signature(x='Raster',y='SpatialPoints'),
                 if (statistic == "C" | statistic == "c") return(.localGeary(x,d1=d1,d2=d2,cell=cell))
               } else {
                 out <- matrix(nrow=length(cell),ncol=nlayers(x))
-                colnames(out) <- layerNames(x)
+                colnames(out) <- names(x)
                 rownames(out) <- cell
                 if (statistic == "K1" | statistic == "k1") for (i in 1:nlayers(x)) out[,i] <- .localK(x[[i]],d1=d1,d2=d2,cell=cell)
                 if (statistic == "I" | statistic == "i") for (i in 1:nlayers(x)) out[,i] <- .localMoran(x[[i]],d1=d1,d2=d2,cell=cell)
@@ -387,7 +387,7 @@ setMethod('lisa', signature(x='Raster',y='SpatialPointsDataFrame'),
               if (statistic == "C" | statistic == "c") return(.localGeary(x,d1=d1,d2=d2,cell=cell))
             } else {
               out <- matrix(nrow=length(cell),ncol=nlayers(x))
-              colnames(out) <- layerNames(x)
+              colnames(out) <- names(x)
               rownames(out) <- cell
               if (statistic == "K1" | statistic == "k1") for (i in 1:nlayers(x)) out[,i] <- .localK(x[[i]],d1=d1,d2=d2,cell=cell)
               if (statistic == "I" | statistic == "i") for (i in 1:nlayers(x)) out[,i] <- .localMoran(x[[i]],d1=d1,d2=d2,cell=cell)

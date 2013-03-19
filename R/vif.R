@@ -1,6 +1,6 @@
 # Author: Babak Naimi, naimi.b@gmail.com
-# Date :  Sep 2012
-# Version 1.0
+# Date :  March 2013
+# Version 1.1
 # Licence GPL v3
 
 .vif <- function(y) {
@@ -12,18 +12,22 @@
   return(z)
 }
 
-.maxCor <- function(k){
-  k <- abs(k)
-  rr<-c();cc<-c();co<-c()
-  for (c in 1:(ncol(k)-1)) {
-    for (r in (c+1):nrow(k)){
-      rr<-c(rr,rownames(k)[r]);cc<-c(cc,colnames(k)[c])
-      co <- c(co,k[r,c])
-    }
+.vif2 <- function(y,w) {
+  z<-rep(NA,length(w))
+  names(z) <- colnames(y)[w]
+  for (i in 1:length(w)) {
+    z[i] <-  1/(1-summary(lm(as.formula(paste(colnames(y)[w[i]],"~.",sep='')),data=y))$r.squared)
   }
-  w <- which.max(co)
-  c(rr[w],cc[w])
+  return(z)
 }
+
+.maxCor <- function(k){
+  n <- nrow(k)
+  for (i in 1:n) k[i:n,i] <- NA
+  w <- which.max(k)
+  c(rownames(k)[((w%/%nrow(k))+1)],colnames(k)[w%%nrow(k)])
+}
+
 
 
 .minCor <- function(k){
@@ -89,10 +93,12 @@ setMethod('vifcor', signature(x='RasterStackBrick'),
             n@variables <- colnames(x)
             exc <- c()
             while (LOOP) {
-              v <- .vif(x)
               xcor <- abs(cor(x))
               mx <- .maxCor(xcor)
               if (xcor[mx[1],mx[2]] >= th) {
+                w1 <- which(colnames(xcor) == mx[1])
+                w2 <- which(rownames(xcor) == mx[2])
+                v <- .vif2(x,c(w1,w2))
                 ex <- mx[which.max(v[mx])]
                 exc <- c(exc,ex)
                 x <- x[,-which(colnames(x) == ex)]
@@ -116,10 +122,12 @@ setMethod('vifcor', signature(x='data.frame'),
             n@variables <- colnames(x)
             exc <- c()
             while (LOOP) {
-              v <- .vif(x)
               xcor <- abs(cor(x))
               mx <- .maxCor(xcor)
               if (xcor[mx[1],mx[2]] >= th) {
+                w1 <- which(colnames(xcor) == mx[1])
+                w2 <- which(rownames(xcor) == mx[2])
+                v <- .vif2(x,c(w1,w2))
                 ex <- mx[which.max(v[mx])]
                 exc <- c(exc,ex)
                 x <- x[,-which(colnames(x) == ex)]
@@ -144,10 +152,12 @@ setMethod('vifcor', signature(x='matrix'),
             n@variables <- colnames(x)
             exc <- c()
             while (LOOP) {
-              v <- .vif(x)
               xcor <- abs(cor(x))
               mx <- .maxCor(xcor)
               if (xcor[mx[1],mx[2]] >= th) {
+                w1 <- which(colnames(xcor) == mx[1])
+                w2 <- which(rownames(xcor) == mx[2])
+                v <- .vif2(x,c(w1,w2))
                 ex <- mx[which.max(v[mx])]
                 exc <- c(exc,ex)
                 x <- x[,-which(colnames(x) == ex)]

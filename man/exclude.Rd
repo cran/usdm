@@ -32,7 +32,7 @@ Before using this function, you should execute one of \code{vifstep} or \code{vi
 }
 
 
-\author{Babak Naimi \email{naimi@r-gis.net}
+\author{Babak Naimi \email{naimi.b@gmail.com}
 
 \url{http://r-gis.net}
 }

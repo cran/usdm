@@ -1,4 +1,4 @@
-\name{usdm-package}
+  \name{usdm-package}
 
 \alias{usdm-package}
 \alias{usdm}

@@ -37,7 +37,7 @@ This function can calculate different LISA statistics at each grid cell in Raste
 Getis, A. and Ord, J. K. 1996 Local spatial statistics: an overview. In P. Longley and M. Batty (eds) \emph{Spatial analysis: modelling in a GIS environment} (Cambridge: Geoinformation International), 261--277.
 }
 
-\author{Babak Naimi \email{naimi@r-gis.net}
+\author{Babak Naimi \email{naimi.b@gmail.com}
 
 \url{http://r-gis.net}
 }

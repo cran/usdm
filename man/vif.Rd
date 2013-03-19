@@ -52,7 +52,7 @@ Naimi, B., Hamm, N.A.S., Groen, T.A., Skidmore, A.K., and Toxopeus, A.G.
 2012. Where is positional uncertainty a problem for species distribution modelling, Ecography. Submitted.
 }
 
-\author{Babak Naimi \email{naimi@r-gis.net}
+\author{Babak Naimi \email{naimi.b@gmail.com}
 
 \url{http://r-gis.net}
 }

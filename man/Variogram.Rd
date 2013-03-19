@@ -34,7 +34,7 @@ Naimi, B., Skidmore, A.K, Groen, T.A., Hamm, N.A.S. 2011. Spatial autocorrelatio
 distribution modelling, Journal of biogeography. 38: 1497-1509.
 }
 
-\author{Babak Naimi \email{naimi@r-gis.net}
+\author{Babak Naimi \email{naimi.b@gmail.com}
 
 \url{http://r-gis.net}
 }
