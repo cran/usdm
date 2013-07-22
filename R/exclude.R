@@ -1,6 +1,6 @@
 # Author: Babak Naimi, naimi.b@gmail.com
-# Date :  Sep. 2012
-# Version 1.0
+# Date :  July. 2013
+# Version 1.1
 # Licence GPL v3
 
 if (!isGeneric("exclude")) {
@@ -10,7 +10,7 @@ if (!isGeneric("exclude")) {
 
 setMethod ('exclude' ,signature(x='RasterStack', vif='VIF'),
            function (x,vif,...) {
-             n <- layerNames(x)
+             n <- names(x)
              for (i in 1:length(vif@results[,1])) if (!vif@results[i,1] %in% n) stop("One or all variables in VIF are not in the Raster object")
              x[[vif@results[,1]]]
             }
@@ -19,7 +19,7 @@ setMethod ('exclude' ,signature(x='RasterStack', vif='VIF'),
 
 setMethod ('exclude' ,signature(x='RasterBrick', vif='VIF'),
            function (x,vif,...) {
-             n <- layerNames(x)
+             n <- names(x)
              for (i in 1:length(vif@results[,1])) if (!vif@results[i,1] %in% n) stop("One or all variables in VIF are not in the Raster object")
              brick(x[[vif@results[,1]]])
            }
@@ -43,7 +43,7 @@ setMethod ('exclude' ,signature(x='matrix', vif='VIF'),
 
 setMethod ('exclude' ,signature(x='RasterStack', vif='missing'),
            function (x,vif,th) {
-             n <- layerNames(x)
+             n <- names(x)
              if(missing(th)) th <- 10
              vif <- vifstep(x)
              print(vif)
@@ -54,7 +54,7 @@ setMethod ('exclude' ,signature(x='RasterStack', vif='missing'),
 
 setMethod ('exclude' ,signature(x='RasterBrick', vif='missing'),
            function (x,vif, th) {
-             n <- layerNames(x)
+             n <- names(x)
              if(missing(th)) th <- 10
              vif <- vifstep(x,th=th)
              print(vif)

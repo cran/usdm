@@ -51,7 +51,7 @@ plot(r[[1]]) # plot the first RasterLayer in r
 
 v1 <- Variogram(r[[1]]) # compute the sample variogram for the first layer in r
 
-v2 <- Variogram(r[[1]],lag=20000,cutoff=100000) # specify the lag and cutoff parameters
+v2 <- Variogram(r[[1]],lag=25000,cutoff=100000) # specify the lag and cutoff parameters
 }
 
 \keyword{spatial}

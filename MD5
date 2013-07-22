@@ -1,8 +1,8 @@
-f439abaab91a5cdd469141b7f99482f4 *DESCRIPTION
+4136ca7a3ca93d38025b8ce535ba1d83 *DESCRIPTION
 fce9e4d4a076e7a821397865cc024541 *NAMESPACE
 2ed3ea5b9a339f0e32c79246293e7439 *R/AAAClasses.R
 f926f4c93c95df6746fc1b49aec6d0be *R/Variogram.R
-b401ab886201df24558d83d24912adc6 *R/exclude.R
+d6557e7d09c4eb38bfeab3c8ea5b59e2 *R/exclude.R
 d4853f09e8d76e7dfb4e5a0cd427f533 *R/lisa.R
 d38e0d9757e51c76c15ad6d0c55dacb0 *R/plot.R
 b79a58a69983b486c8918e7588676a23 *R/show.R
@@ -23,9 +23,9 @@ f518c1b0dd114cd3aff5e0ae9f0b0ce0 *inst/external/species_nl.dbf
 14b34c531541e842813db0b4246e8b3e *inst/external/species_nl.shx
 bba0995d2bf1292fd04a5a3e048b24bf *man/RasterVariogram-class.Rd
 23949e035e4ed38617159d2dc8a14970 *man/VIF-class.Rd
-ef025868bc0e2101c3c7d5a652ced7d5 *man/Variogram.Rd
-ba79f72eaaa4301af580dcfee8bd6aaa *man/exclude.Rd
-650a05179d786b76b69c984ddbc2b934 *man/lisa.Rd
+1eccb3879853cc578d33e9b462d41dab *man/Variogram.Rd
+57b7622eb67bf71b369e7df645fbd44a *man/exclude.Rd
+9b7bca9c1b821a87b46ed0deb80fb48b *man/lisa.Rd
 a5ebfd3f81b05e7f2e8631c0d539945b *man/plot.RasterVariogram.Rd
 bbeffb43d860a77578a53ef45d20fd04 *man/plot.speciesLisa.Rd
 3d0f6ddcf014970d5a4db9a65179f47d *man/speciesLISA-class.Rd

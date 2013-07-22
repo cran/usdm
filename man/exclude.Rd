@@ -66,8 +66,8 @@ re2 <- exclude(r, v2) # exclude the collinear variables that were identified in
 
 re2
 
-re3 <- exclude(r) # since vif argument is not specified, first, vifstep is called 
-# and then, the collinear variables are excluded
+re3 <- exclude(r) # first, vifstep is called 
+
 
 re3
 
