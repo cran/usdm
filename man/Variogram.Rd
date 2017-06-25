@@ -32,7 +32,12 @@ Variograms are widely used for exploring spatial structure in a single variable.
 \references{
 Naimi, B., Skidmore, A.K, Groen, T.A., Hamm, N.A.S. 2011. Spatial autocorrelation in predictors reduces the impact of positional uncertainty in occurrence data on species
 distribution modelling, Journal of biogeography. 38: 1497-1509.
+
+Naimi, B., Hamm, N.A.S., Groen, T.A., Skidmore, A.K., and Toxopeus, A.G. 
+2014. Where is positional uncertainty a problem for species distribution modelling?, Ecography 37 (2): 191-203.
+
 }
+
 
 \author{Babak Naimi \email{naimi.b@gmail.com}
 
@@ -41,6 +46,7 @@ distribution modelling, Journal of biogeography. 38: 1497-1509.
 
 
 \examples{
+\dontrun{
 file <- system.file("external/spain.grd", package="usdm")
 
 r <- brick(file) # reading a RasterBrick object including 10 raster layers in Spain
@@ -52,6 +58,8 @@ plot(r[[1]]) # plot the first RasterLayer in r
 v1 <- Variogram(r[[1]]) # compute the sample variogram for the first layer in r
 
 v2 <- Variogram(r[[1]],lag=25000,cutoff=100000) # specify the lag and cutoff parameters
+}
+
 }
 
 \keyword{spatial}

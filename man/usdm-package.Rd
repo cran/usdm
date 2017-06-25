@@ -18,6 +18,7 @@ In addition, there is a function to quantify different local indicators of spati
 
 \author{Babak Naimi \email{naimi.b@gmail.com}
 
+
 \url{http://r-gis.net}
 }
 

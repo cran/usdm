@@ -1,6 +1,7 @@
 # Author: Babak Naimi, naimi.b@gmail.com
 # Date :  July. 2015
-# Version 1.2
+# Last update: June 2017
+# Version 1.4
 # Licence GPL v3
 
 if (!isGeneric("exclude")) {
@@ -21,7 +22,7 @@ setMethod ('exclude' ,signature(x='RasterBrick', vif='VIF'),
            function (x,vif,...) {
              n <- names(x)
              for (i in 1:length(vif@results[,1])) if (!as.character(vif@results[i,1]) %in% n) stop("One or all variables in VIF are not in the Raster object")
-             brick(x[[as.character(vif@results[,1])]])
+             x[[as.character(vif@results[,1])]]
            }
 )
 

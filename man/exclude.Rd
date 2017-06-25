@@ -37,9 +37,19 @@ Before using this function, you should execute one of \code{vifstep} or \code{vi
 \url{http://r-gis.net}
 }
 
+
+\references{
+
+IF you used this method, please cite the following article for which this package is developed:
+
+Naimi, B., Hamm, N.A.S., Groen, T.A., Skidmore, A.K., and Toxopeus, A.G. 
+2014. Where is positional uncertainty a problem for species distribution modelling?, Ecography 37 (2): 191-203.
+}
+
 \seealso{ \code{\link[usdm]{vif}}}
 
 \examples{
+\dontrun{
 file <- system.file("external/spain.grd", package="usdm")
 
 r <- brick(file) # reading a RasterBrick object including 10 raster layers in Spain
@@ -70,7 +80,7 @@ re3 <- exclude(r) # first, vifstep is called
 
 
 re3
-
+}
 }
 
 \keyword{spatial}

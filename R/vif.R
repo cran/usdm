@@ -1,6 +1,7 @@
 # Author: Babak Naimi, naimi.b@gmail.com
 # Date :  March 2013
-# Version 1.1
+# Last update: June 2017
+# Version 1.3
 # Licence GPL v3
 
 .vif <- function(y) {
@@ -22,6 +23,7 @@
 }
 
 .maxCor <- function(k){
+  k <- abs(k)
   n <- nrow(k)
   for (i in 1:n) k[i:n,i] <- NA
   w <- which.max(k)
@@ -178,7 +180,7 @@ if (!isGeneric("vifstep")) {
 
 setMethod('vifstep', signature(x='RasterStackBrick'),
           function(x, th=10, maxobservations=5000) {
-            if (nlayers(x) == 1) stop("The Raster object should have at least two layers")
+            if (nlayers(x) == 1) stop("The Raster object should have at least two layers!")
             LOOP <- TRUE
             x <- as.data.frame(x)
             x <- na.omit(x)
@@ -204,7 +206,7 @@ setMethod('vifstep', signature(x='RasterStackBrick'),
 
 setMethod('vifstep', signature(x='data.frame'),
           function(x, th=10, maxobservations=5000) {
-            if (ncol(x) == 1) stop("The Raster object should have at least two layers")
+            if (ncol(x) == 1) stop("The data.frame should have at least two variables!")
             LOOP <- TRUE
             x <- na.omit(x)
             if(nrow(x) > maxobservations) x <- x[sample(1:nrow(x),maxobservations),]
@@ -229,7 +231,7 @@ setMethod('vifstep', signature(x='data.frame'),
 
 setMethod('vifstep', signature(x='matrix'),
           function(x, th=10, maxobservations=5000) {
-            if (ncol(x) == 1) stop("The Raster object should have at least two layers")
+            if (ncol(x) == 1) stop("The matrix  should have at least two columns (variables)!")
             LOOP <- TRUE
             x <- as.data.frame(x)
             x <- na.omit(x)

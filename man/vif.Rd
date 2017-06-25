@@ -16,10 +16,10 @@
 
 
 
-\title{Variance Inflation Factor}
+\title{Variance Inflation Factor and test for multicollinearity}
 
 \description{
-Calculates variance inflation factor (VIF) for a set of variables and exclude the highly correlated variables from the set through a stepwise procedure. }
+Calculates variance inflation factor (VIF) for a set of variables and exclude the highly correlated variables from the set through a stepwise procedure. This method can be used to deal with multicollinearity problems when you fit statistical models}
 
 \usage{
 vif(x, ...)
@@ -38,6 +38,7 @@ VIF can be used to detect collinearity (Strong correlation between two or more p
 addtional arguments:
 
 \code{maxobservations} a number (default=5000) specifying the maximum number of observations should be contributed in calculation of VIF. When the number of observations (cells in raster or rows in data.frame/matrix) is greater than \code{maxobservations}, then a random sample with a size of \code{maxobservations} is drawn to keep the calculation effecient.
+
 }
 
 \value{
@@ -48,8 +49,12 @@ addtional arguments:
 
 Dormann, C. F. et al. 2012. Collinearity: A review of methods to Deal with it and a simulation study evaluating their performance. Ecography 35: 001-020.;
 
+--------------
+
+IF you used this method, please cite the following article for which this package is developed:
+
 Naimi, B., Hamm, N.A.S., Groen, T.A., Skidmore, A.K., and Toxopeus, A.G. 
-2012. Where is positional uncertainty a problem for species distribution modelling, Ecography. Submitted.
+2014. Where is positional uncertainty a problem for species distribution modelling?, Ecography 37 (2): 191-203.
 }
 
 \author{Babak Naimi \email{naimi.b@gmail.com}
@@ -60,6 +65,7 @@ Naimi, B., Hamm, N.A.S., Groen, T.A., Skidmore, A.K., and Toxopeus, A.G.
 \seealso{ \code{\link[usdm]{exclude}}}
 
 \examples{
+\dontrun{
 file <- system.file("external/spain.grd", package="usdm")
 
 r <- brick(file) # reading a RasterBrick object including 10 raster layers in Spain
@@ -75,7 +81,7 @@ v1
 v2 <- vifstep(r, th=10) # identify collinear variables that should be excluded
 
 v2
-
+}
 }
 
 \keyword{spatial}

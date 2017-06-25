@@ -33,9 +33,18 @@ This function can calculate different LISA statistics at each grid cell in Raste
 \item{numeric vector}{if \code{y} or \code{cell} is specified}
 }
 
-\references{Anselin, L. 1995. Local indicators of spatial association, Geographical Analysis, 27, 93--115;
+\references{
+
+Anselin, L. 1995. Local indicators of spatial association, Geographical Analysis, 27, 93--115;
+
 Getis, A. and Ord, J. K. 1996 Local spatial statistics: an overview. In P. Longley and M. Batty (eds) \emph{Spatial analysis: modelling in a GIS environment} (Cambridge: Geoinformation International), 261--277.
+
+Naimi, B., Hamm, N.A.S., Groen, T.A., Skidmore, A.K., and Toxopeus, A.G. 
+2014. Where is positional uncertainty a problem for species distribution modelling?, Ecography 37 (2): 191-203.
+
+
 }
+
 
 \author{Babak Naimi \email{naimi.b@gmail.com}
 
@@ -44,6 +53,9 @@ Getis, A. and Ord, J. K. 1996 Local spatial statistics: an overview. In P. Longl
 
 
 \examples{
+\dontrun{
+
+
 file <- system.file("external/spain.grd", package="usdm")
 
 r <- brick(file) # reading a RasterBrick object including 10 rasters in Spain
@@ -59,24 +71,24 @@ r.I <- lisa(x=r[[1]],d1=0,d2=25000,statistic="I") # local Moran's I
 plot(r.I)
 
 # entering r instead of r[[1]], givees the indicator for each layer:
-# r.I <- lisa(x=r,d1=0,d2=25000,statistic="I")
-# plot(r.I)
+r.I <- lisa(x=r,d1=0,d2=25000,statistic="I")
+plot(r.I)
 
 r.c <- lisa(x=r[[1]],d1=0,d2=25000,statistic="c") # local Geary's c
 
 plot(r.c)
 
-#r.g <- lisa(x=r[[1]],d1=0,d2=25000,statistic="G") # G statistic
+r.g <- lisa(x=r[[1]],d1=0,d2=25000,statistic="G") # G statistic
 
-#plot(r.g)
+plot(r.g)
 
-#r.g2 <- lisa(x=r[[1]],d1=0,d2=25000,statistic="G*") # G* statistic
+r.g2 <- lisa(x=r[[1]],d1=0,d2=25000,statistic="G*") # G* statistic
 
-#plot(r.g2)
+plot(r.g2)
 
-#r.K1 <- lisa(x=r[[1]],d1=0,d2=30000,statistic="K1") # gives K1 statistic for each layer
+r.K1 <- lisa(x=r[[1]],d1=0,d2=30000,statistic="K1") # gives K1 statistic for each layer
 
-#plot(r.K1)
+plot(r.K1)
 
 lisa(x=r,d1=0,d2=30000,cell=2000,statistic="I") # gives local Moran's I at cell number 2000
 #for each raster layer in r
@@ -93,6 +105,9 @@ points(sp)
 
 lisa(x=r,y=sp,d1=0,d2=30000,statistic="I") # calculates the local Moran's I at 
 # point locations in sp for each raster layer in r
+}
+
+
 }
 
 \keyword{spatial}

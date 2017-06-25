@@ -29,7 +29,13 @@ This function calculates a LISA statistic for each explanatory variable at each 
  \code{speciesLISA}
 }
 
-\references{Naimi, B., Hamm, N.A.S., Groen, T.A., Skidmore, A.K., and Toxopeus, A.G. 2012. Where is positional uncertainty a problem for species distribution modelling, Ecography. Submitted.
+
+\references{
+
+IF you used this method, please cite the following article for which this package is developed:
+
+Naimi, B., Hamm, N.A.S., Groen, T.A., Skidmore, A.K., and Toxopeus, A.G. 
+2014. Where is positional uncertainty a problem for species distribution modelling?, Ecography 37 (2): 191-203.
 }
 
 \author{Babak Naimi \email{naimi.b@gmail.com}
@@ -40,6 +46,7 @@ This function calculates a LISA statistic for each explanatory variable at each 
 \seealso{ \code{\link[usdm]{lisa}}}
 
 \examples{
+\dontrun{
 file <- system.file("external/predictors.grd", package="usdm")
 
 r <- brick(file) # reading a RasterBrick object including 4 rasters in the Netherlands
@@ -49,25 +56,27 @@ r
 plot(r) # visualize the raster layers
 
 
-#files.path <- system.file("external", package="usdm") # path to location of example files
-#require(rgdal)
-#sp <- readOGR(dsn=files.path,layer="species_nl") # reading species data (shapefile)
+files.path <- system.file("external", package="usdm") # path to location of example files
+require(rgdal)
+sp <- readOGR(dsn=files.path,layer="species_nl") # reading species data (shapefile)
 
 # alternatively, to read species data you can use:
-#require(maptools)
-#sp.file <- system.file("external/species_nl.shp", package="usdm")
-#sp <- readShapePoints(sp.file)
+require(maptools)
+sp.file <- system.file("external/species_nl.shp", package="usdm")
+sp <- readShapePoints(sp.file)
 
 
-#splisa <- speciesLisa(x=r,y=sp,uncertainty=15000,weights=c(0.22,0.2,0.38,0.2))
+splisa <- speciesLisa(x=r,y=sp,uncertainty=15000,weights=c(0.22,0.2,0.38,0.2))
 
-#splisa
+splisa
 
-#plot(splisa)
+plot(splisa)
 
-#bnd <- readOGR(dsn=files.path,layer="boundary") # reading the boundary map
+bnd <- readOGR(dsn=files.path,layer="boundary") # reading the boundary map
 
-#plot(splisa,bnd)
+plot(splisa,bnd)
+}
+
 
 }
 
