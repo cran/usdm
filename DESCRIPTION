@@ -1,8 +1,8 @@
 Package: usdm
 Type: Package
 Title: Uncertainty Analysis for Species Distribution Models
-Version: 2.1-6
-Date: 2023-07-07
+Version: 2.1-7
+Date: 2023-09-29
 Author: Babak Naimi
 Depends: methods, terra
 Imports: raster
@@ -11,6 +11,6 @@ Description: This is a framework that aims to provide methods and tools for asse
 License: GPL (>= 3)
 URL: https://r-gis.net/
 NeedsCompilation: no
-Packaged: 2023-07-07 00:32:59 UTC; babak
+Packaged: 2023-09-29 01:45:47 UTC; babak
 Repository: CRAN
-Date/Publication: 2023-07-07 03:50:02 UTC
+Date/Publication: 2023-09-29 04:20:02 UTC
